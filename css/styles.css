@@ -1,5 +1,5 @@
 @import url('./reset.css');
-@import url('./fonts/Satoshi_Complete/Fonts/WEB/css/satoshi.css');
+@import url('../fonts/Satoshi_Complete/Fonts/WEB/css/satoshi.css');
 
 body {
     font-family: 'Satoshi-Light';
