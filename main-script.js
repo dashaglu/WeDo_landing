@@ -22,8 +22,8 @@ const showStoreButtons = () => {
     button.style.display = 'block';
   });
 }
-function hideStoreBtnForLaptop(e = INITIAL_UPLOAD) {
-  if (e === INITIAL_UPLOAD || detectDeviceType(e.target.outerWidth) === LAPTOP) {
+function hideStoreBtnForLaptop(e) {
+  if (detectDeviceType(e.target.outerWidth) === LAPTOP) {
     hideStoreButtons();
   } else if (detectDeviceType(e.target.outerWidth) === MOBILE) {
     showStoreButtons();
@@ -32,7 +32,14 @@ function hideStoreBtnForLaptop(e = INITIAL_UPLOAD) {
   }
 };
 
-hideStoreBtnForLaptop();
+// Initial upload
+if (window.innerWidth === LAPTOP) {
+  hideStoreBtnForLaptop();
+}
+if (window.innerWidth === MOBILE) {
+  showStoreButtons();
+}
+
 window.addEventListener('resize', hideStoreBtnForLaptop);
 
 
