@@ -84,20 +84,14 @@ header h1 {
     color: transparent;
 }
 
-/* image section */
-.image-section {
-    margin-top: -25%;
-}
-
-.image-section > img {
-    display: block;
-    width: 40%;
-    margin: 0 auto;
+.header-content > img {
+    width: 60%;
+    margin-top: 5rem;
 }
 
 /* feature section */
 .feature-section {
-    padding-top: 9.375rem;
+    padding-top: 30rem;
     padding-bottom: 6.25rem;
     font-size: 1.25rem;
     overflow: hidden;
@@ -307,7 +301,9 @@ padding: 3.125rem 8%;
 .advantage-article {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100%;
     padding: 1.875rem 3.125rem 1.56rem 3.125rem;
 
     border-radius: 30px;
@@ -454,20 +450,31 @@ footer .main-wrapper div:nth-child(4) div:first-child span:last-child::before {
 }
 
 /* Desktop styles */
-@media screen and (min-width: 1920px) {
-    .image-section {
-        margin-top: -17%;
+@media screen and (min-width: 2560px) {
+    .header-content > img {
+        width: 89%;
+    }
+}
+
+@media screen and (min-width: 1680px) {
+    .feature-section {
+        padding-top: 20rem;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .feature-section {
+        padding-top: 42rem;
     }
 }
 
 @media screen and (max-width: 1280px) {
-    .image-section {
-        margin-top: -11%;
+    .main-wrapper {
+        width: 70rem;
     }
 }
 
 @media screen and (max-width: 1200px) {
-    /* Your CSS rules for tablets */
     .main-wrapper {
         width: 56rem;
     }
@@ -516,7 +523,6 @@ footer .main-wrapper div:nth-child(4) div:first-child span:last-child::before {
 }
 
 @media screen and (max-width: 800px) {
-    /* Your CSS rules for tablets */
     .main-wrapper {
         width: 43rem;
     }
