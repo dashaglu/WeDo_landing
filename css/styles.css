@@ -152,7 +152,7 @@ header h1 {
     content: "";
 
     position: absolute;
-    top: 7%;
+    top: -2%;
     left: -50%;
 
     width: 150%;
@@ -170,23 +170,7 @@ header h1 {
 }
 
 .feature-article-content--manage {
-    position: relative;
     padding: 4.53rem 4.945rem 4.53rem 0;
-}
-
-.feature-article-content--manage::before {
-    /* content: "";
-
-    position: absolute;
-    top: -20%;
-    left: -50%;
-
-    width: 200%;
-    height: 140%;
-
-    background: radial-gradient(ellipse, #7D29FF 0%, white 60%);
-    opacity: 12%;
-    z-index: -1; */
 }
 
 .feature-article-content--discuss {
