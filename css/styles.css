@@ -36,7 +36,7 @@ header {
 
     color: white;
 
-    background-image: url('../images/Header.png');
+    background-image: url('../images/Header.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -91,7 +91,7 @@ header h1 {
 
 .image-section > img {
     display: block;
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
 }
 
@@ -113,8 +113,54 @@ header h1 {
 }
 
 .feature-section article {
+    position: relative;
     display: flex;
     margin-top: 5rem;
+}
+
+.feature-section article:nth-child(3)::before {
+    content: "";
+
+    position: absolute;
+    top: -20%;
+    left: -50%;
+
+    width: 150%;
+    height: 140%;
+
+    background: radial-gradient(ellipse, #7D29FF 0%, white 60%);
+    opacity: 12%;
+    z-index: -1;
+}
+
+.feature-section article:nth-child(4)::before {
+    content: "";
+
+    position: absolute;
+    top: -7%;
+    right: -50%;
+
+    width: 150%;
+    height: 140%;
+
+    background: radial-gradient(ellipse, #7C88EE 0%, white 60%);
+    opacity: 26%;
+    z-index: -1;
+}
+
+.feature-section article:last-child::before {
+    content: "";
+
+    position: absolute;
+    top: 7%;
+    left: -50%;
+
+    width: 150%;
+    height: 140%;
+
+    background: radial-gradient(ellipse, #37B7FFCC 0%, white 60%);
+    opacity: 20%;
+    z-index: -1;
 }
 
 .feature-article-content {
@@ -124,7 +170,23 @@ header h1 {
 }
 
 .feature-article-content--manage {
+    position: relative;
     padding: 4.53rem 4.945rem 4.53rem 0;
+}
+
+.feature-article-content--manage::before {
+    /* content: "";
+
+    position: absolute;
+    top: -20%;
+    left: -50%;
+
+    width: 200%;
+    height: 140%;
+
+    background: radial-gradient(ellipse, #7D29FF 0%, white 60%);
+    opacity: 12%;
+    z-index: -1; */
 }
 
 .feature-article-content--discuss {
@@ -407,20 +469,31 @@ footer .main-wrapper div:nth-child(4) div:first-child span:last-child::before {
 }
 
 /* Desktop styles */
-@media (min-width: 2560px) {
+@media screen and (min-width: 1920px) {
     .image-section {
-        margin-top: -42%;
-    }   
+        margin-top: -17%;
+    }
 }
 
-@media (min-width: 1920px) {
+@media screen and (max-width: 1280px) {
     .image-section {
-        margin-top: -34%;
-    }   
+        margin-top: -11%;
+    }
 }
 
-@media (max-width: 1366px) {
+@media screen and (max-width: 1200px) {
     /* Your CSS rules for tablets */
+    .main-wrapper {
+        width: 56rem;
+    }
+
+    footer .main-wrapper div:nth-child(4) div:first-child {
+        width: 43%;
+    }
+}
+
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
     .advantage-section-content {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
@@ -436,19 +509,7 @@ footer .main-wrapper div:nth-child(4) div:first-child span:last-child::before {
     }
 }
 
-@media (max-width: 1200px) {
-    /* Your CSS rules for tablets */
-    .main-wrapper {
-        width: 56rem;
-    }
-
-    footer .main-wrapper div:nth-child(4) div:first-child {
-        width: 43%;
-    }
-}
-
-@media (max-width: 992px) {
-    /* Your CSS rules for tablets */
+@media screen and (max-width: 992px) {
     .main-wrapper {
         width: 50rem;
     }
@@ -458,7 +519,18 @@ footer .main-wrapper div:nth-child(4) div:first-child span:last-child::before {
     }
 }
 
-@media (max-width: 800px) {
+
+@media screen and (max-width: 810px) {
+    .main-wrapper {
+        width: 45rem;
+    }
+
+    .image-section {
+        margin-top: -55%;
+    }
+}
+
+@media screen and (max-width: 800px) {
     /* Your CSS rules for tablets */
     .main-wrapper {
         width: 43rem;
@@ -470,8 +542,7 @@ footer .main-wrapper div:nth-child(4) div:first-child span:last-child::before {
 }
 
 /* Mobile styles */
-@media (max-width: 768px) {
-    /* Your CSS rules for tablets */
+@media screen and (max-width: 768px) {
     .main-wrapper {
         width: 43rem;
     }
