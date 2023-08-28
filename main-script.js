@@ -2,7 +2,6 @@
 const LAPTOP  = 'Laptop';
 const MOBILE = 'Mobile';
 const LAPTOP_BORDER = 1024;
-const INITIAL_UPLOAD = 'initial upload';
 
 // Utils
 function detectDeviceType(currentWidth) {
