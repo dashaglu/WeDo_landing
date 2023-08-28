@@ -9,6 +9,10 @@ function detectDeviceType(currentWidth) {
   return currentWidth > LAPTOP_BORDER ? LAPTOP : MOBILE;
 }
 
+function isIOS() {
+  return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
   
 // hide app store and play market buttons for laptop
 const storeButtons = document.querySelectorAll('.article-content-button');
@@ -19,13 +23,13 @@ const hideStoreButtons = () => {
 }
 const showStoreButtons = () => {
   storeButtons.forEach((button) => {
-    button.style.display = 'block';
+    button.style.display = 'flex';
   });
 }
-function hideStoreBtnForLaptop(e) {
-  if (detectDeviceType(e.target.outerWidth) === LAPTOP) {
+function hideStoreBtnForLaptop() {
+  if (detectDeviceType(window.innerWidth) === LAPTOP) {
     hideStoreButtons();
-  } else if (detectDeviceType(e.target.outerWidth) === MOBILE) {
+  } else if (detectDeviceType(window.innerWidth) === MOBILE) {
     showStoreButtons();
   } else {
     null;
@@ -33,11 +37,21 @@ function hideStoreBtnForLaptop(e) {
 };
 
 // Initial upload
-if (window.innerWidth === LAPTOP) {
-  hideStoreBtnForLaptop();
+if (detectDeviceType(window.innerWidth) === LAPTOP) {
+  hideStoreButtons();
 }
-if (window.innerWidth === MOBILE) {
+if (detectDeviceType(window.innerWidth) === MOBILE) {
   showStoreButtons();
+}
+
+if (isIOS()) {
+  storeButtons.forEach((button) => {
+    button.setAttribute('href', 'https://apps.apple.com/pl/app/wedo-social/id6450743279');
+  }); 
+} else {
+  storeButtons.forEach((button) => {
+    button.setAttribute('href', 'https://play.google.com/store/apps/details?id=xyz.wedo');
+  }); 
 }
 
 window.addEventListener('resize', hideStoreBtnForLaptop);
