@@ -54,3 +54,13 @@ if (isIOS()) {
 }
 
 window.addEventListener('resize', hideStoreBtnForLaptop);
+
+const submitEmailForm = document.getElementById("email-subscription-form");
+
+submitEmailForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const emailInput = document.getElementById("email")
+  console.log("Email on submit:", emailInput.value);
+});
+
