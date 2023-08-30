@@ -464,6 +464,49 @@ footer .main-wrapper div:nth-child(4) div:first-child span:last-child::before {
     background-color: #52BD94;
 }
 
+/* Terms of service */
+.terms-of-service, .terms-of-service h1 {
+    color: #1A285D;
+}
+
+.terms-of-service h1 {
+    font-family: Nunito;
+    font-size: 4rem;
+}
+
+.terms-of-service header .main-wrapper > div {
+    display: flex;
+    align-items: center;
+    padding-top: 9.375rem;
+}
+
+.terms-of-service header a {
+    height: fit-content;
+    margin-right: 2rem;
+}
+
+.terms-of-service main {
+    padding: 1.5rem 0 6.75rem 0;
+}
+
+.terms-of-service h2 {
+    font-family: Nunito;
+    font-size: 2rem;
+}
+
+.terms-of-service p.subtitle {
+    font-family: Satoshi-Bold;
+    font-size: 1.125rem;
+}
+
+.terms-of-service p {
+    font-family: Satoshi-Light;
+}
+
+.terms-of-service main a {
+    text-decoration: underline;
+}
+
 /* Desktop styles */
 @media screen and (min-width: 2560px) {
     .header-content > img {
