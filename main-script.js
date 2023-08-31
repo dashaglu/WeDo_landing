@@ -2,6 +2,8 @@
 const LAPTOP  = 'Laptop';
 const MOBILE = 'Mobile';
 const LAPTOP_BORDER = 1024;
+const postEmailUrl = 'https://aj4vwojhub.execute-api.ap-southeast-2.amazonaws.com/landing-api';
+const storeEmailSuccessfulMsg = 'Email stored successfully';
 
 // Utils
 function detectDeviceType(currentWidth) {
@@ -12,30 +14,6 @@ function isIOS() {
   return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
 
-function storeEmail(email) {
-  const url = "https://aj4vwojhub.execute-api.ap-southeast-2.amazonaws.com/landing-api"; // Replace with your API endpoint
-  const data = {
-    email: email
-  };
-
-fetch(url, {
-  method: "POST",
-  mode: 'no-cors',
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(data)
-})
-  .then(response => response.json())
-  .then(data => {
-    console.log("Response data:", data);
-  })
-  .catch(error => {
-    console.error("Error:", error);
-  });
-}
-
-  
 // hide app store and play market buttons for laptop
 const storeButtons = document.querySelectorAll('.article-content-button');
 const hideStoreButtons = () => {
@@ -80,10 +58,31 @@ window.addEventListener('resize', hideStoreBtnForLaptop);
 
 const submitEmailForm = document.getElementById("email-subscription-form");
 
-submitEmailForm.addEventListener("submit", function(event) {
+submitEmailForm.addEventListener("submit", async function(event) {
   event.preventDefault();
 
   const emailInput = document.getElementById("email");
-  storeEmail(emailInput.value);
+
+  try {
+    const response = await fetch(postEmailUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email: emailInput.value })
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const responseData = await response.json();
+    if (responseData.body === storeEmailSuccessfulMsg) {
+      const submitBtn = document.getElementById("submit-button");
+      submitBtn.classList.add("subscription-button-success");
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
 });
 

@@ -410,6 +410,13 @@ padding: 3.125rem 8%;
     font-weight: 700;
     
     background-color: #FFC226;
+
+    transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+.subscription-button-success {
+    color: white;
+    background-color: #2FB551;
 }
 
 
