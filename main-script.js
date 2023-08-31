@@ -80,6 +80,8 @@ submitEmailForm.addEventListener("submit", async function(event) {
     if (responseData.body === storeEmailSuccessfulMsg) {
       const submitBtn = document.getElementById("submit-button");
       submitBtn.classList.add("subscription-button-success");
+      submitBtn.textContent = 'Subscribed!';
+      emailInput.value = '';
     }
   } catch (error) {
     console.error('Error:', error);
